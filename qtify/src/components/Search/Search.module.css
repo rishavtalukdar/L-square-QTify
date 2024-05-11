@@ -1,0 +1,24 @@
+.search {
+    display: inline-flex;
+    padding: 14px 20px;
+    height: 100%;
+    border-radius: 8px 0px 0px 8px;
+    border: 1px solid #121212;
+    width: 402px;
+}
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    height: 48px;
+}
+
+.searchButton{
+    display: inline-flex;
+    padding: 14px 20px;
+    border-radius: 0px 8px 8px 0px; 
+    height: 100%;
+    border:  1px solid #121212;
+    border-left: none;
+    cursor: pointer
+}
