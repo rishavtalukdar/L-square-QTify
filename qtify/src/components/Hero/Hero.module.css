@@ -1,0 +1,10 @@
+.hero{
+    background-color: var(--color-black);
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+h1{
+    color: white;
+}

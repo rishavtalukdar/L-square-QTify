@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import StyleEngineProvider from "@mui/material/StyledEngineProvider"
-// import {fetchNewAlbums, fetchSongs, fetchTopAlbums} from "./api/api"
+import {fetchNewAlbums, fetchSongs, fetchTopAlbums} from "./api/api"
+import Hero from "./components/Hero/Hero"
 
 function App() {
   const [data ,setData] =useState({});
@@ -14,16 +15,17 @@ function App() {
     });
   };
   
-  // useEffect(()=>{
-  //   generateData("topAlbums", fetchTopAlbums)
-  //   generateData("newAlbums", fetchNewAlbums)
-  //   generateData("songs", fetchSongs)
-  // },[])
+  useEffect(()=>{
+    generateData("topAlbums", fetchTopAlbums)
+    generateData("newAlbums", fetchNewAlbums)
+    generateData("songs", fetchSongs)
+  },[])
 
   const {topAlbums=[] , newAlbums=[], songs=[] } =data;
   return (   
     <StyleEngineProvider injectFirst>
       <Navbar/>
+      <Hero/>
       </StyleEngineProvider>
   );
 }
