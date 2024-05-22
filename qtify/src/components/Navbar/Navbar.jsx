@@ -7,7 +7,7 @@ import style from "./Navbar.module.css"
 
 
 
-function Navbar(){
+function Navbar({searchData}){
     return (
       <nav className={style.navbar}>
         <Link to= "/">
@@ -15,6 +15,7 @@ function Navbar(){
         </Link>
         <Search
             placeholder ="Search a song of your choice"
+            searchData={searchData}
         />
         <Button>Give Feedback</Button>
         

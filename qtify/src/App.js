@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import StyleEngineProvider from "@mui/material/StyledEngineProvider"
 import {fetchNewAlbums, fetchSongs, fetchTopAlbums} from "./api/api"
-import Hero from "./components/Hero/Hero"
+import Hero from "./components/Hero/Hero";
+import { Outlet } from "react-router-dom";
 
 function App() {
   const [data ,setData] =useState({});
@@ -20,12 +21,12 @@ function App() {
     generateData("newAlbums", fetchNewAlbums)
     generateData("songs", fetchSongs)
   },[])
-
+  console.log("data",data)
   const {topAlbums=[] , newAlbums=[], songs=[] } =data;
   return (   
     <StyleEngineProvider injectFirst>
       <Navbar/>
-      <Hero/>
+        <Outlet context={{data: {topAlbums, newAlbums, songs}}}/>
       </StyleEngineProvider>
   );
 }
