@@ -68,3 +68,9 @@
 .linkStyle{
     text-decoration: none;
 }
+
+.card img {
+    object-fit: cover;
+    height: 190px;
+    width: 170px;
+}
