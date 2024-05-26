@@ -1,7 +1,8 @@
 .wrapper {
     display: flex;
-    gap: 40px;
+    gap: 50px;
     flex-wrap: wrap;
+    margin-left: 20px;
 }
 
 .header{
@@ -14,6 +15,7 @@
 .toggleText{
     cursor: pointer;
     color: white;
+    margin-right: 20px;
 }
 
 .cardWrapper{

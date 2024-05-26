@@ -3,7 +3,7 @@ import {CircularProgress} from "@mui/material"
 import { useState } from "react";
 import Card from "../Card/Card"
 import Carousel from "../Carousel/Carousel"
-// import Filters from "../Filters/Filters"
+import Filters from "../Filters/Filters"
 import styles from "./Section.module.css"
 
 export default function Section ({title, data, filterSource, type}){
@@ -23,7 +23,7 @@ export default function Section ({title, data, filterSource, type}){
                 setFilters([...filters, ...data]);
             });
         }
-    }, []);
+    }, [filterSource]);
 
     const showFilters =filters.length > 1;
     const cardsToRender = data.filter((card)=>
@@ -37,24 +37,24 @@ export default function Section ({title, data, filterSource, type}){
       <div>
         <div className={styles.header}>
             <h3>{title}</h3>
-            <h4 className={styles.toogleText} onClick={handleToggle}>
+            {title!="Songs"?(<h4 className={styles.toogleText} onClick={handleToggle}>
                 {!carouselToggle ? "Collapse All" : "Show All"}
-            </h4>
+            </h4>): <></>}
         </div>
         {showFilters && (
             <div className={styles.filterWrapper}>
-            {/* <Filters 
+            <Filters 
                 filters ={filters}
                 selectedFilterIndex={selectedFilterIndex}
-                setSelectedFilterIndex ={selectedFilterIndex}
-              />  */}
+                setSelectedFilterIndex ={setSelectedFilterIndex}
+              /> 
              </div>  
         )}
         {data.length ===0? (
             <CircularProgress />
          ) :(
             <div className={styles.cardWrapper}>
-                {!carouselToggle ?(
+                {!carouselToggle || title==="Songs"?(
                     <div className={styles.wrapper}>
                         {cardsToRender.map((ele)=>(
                             <Card data={ele} type={type} />
